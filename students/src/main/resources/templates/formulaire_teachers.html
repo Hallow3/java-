@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+    <title>ajouter un enseignant</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="#">systeme de gestion des etudiants</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/students}">liste des etudiants</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/Teachers}">liste des enseignants</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" style="margin-top: 5%; width: 500px; border: solid;">
+    <fieldset>
+    <h2 align = "center">ajouter un enseignant !</h2>
+    <hr/><hr/>
+   <form th:action="@{/Teachers}" th:object = "${teacher}" method="POST">
+    <div class="form-group">
+        <label for="name">entrer le nom et prenom: </label>
+        <input type="text" class="form-control" id="name" aria-describedby="emailHelp" placeholder="entrez votre nom" th:field = "*{nameTeacher}">
+        <small id="emailHelp" class="form-text text-muted">votre nom sera publié !</small>
+    </div>
+    <div class="form-group">
+        <label for="experience">entrer l'experience/à propos: </label>
+        <input type="text" class="form-control" id="experience" aria-describedby="emailHelp" placeholder="entrez votre experience" th:field = "*{experience}">
+        <small id="emailHelp" class="form-text text-muted">votre expérience sera publié !</small>
+    </div>
+      <button type="submit" class="btn btn-primary">soumettre</button>
+   </form>
+    </fieldset>
+</div> 
+</body>
+</html>
